@@ -132,3 +132,77 @@ document.querySelectorAll('.video-thumb button').forEach(button => {
   button.title = 'Video coming soon';
   button.setAttribute('aria-label', 'Testimonial video coming soon');
 });
+
+/* Booking page (booking.html) */
+const bookingDateInputs = document.querySelectorAll('.bkg-form input[type="date"]');
+if (bookingDateInputs.length) {
+  const today = new Date();
+  const minDate = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, '0'), String(today.getDate()).padStart(2, '0')].join('-');
+  bookingDateInputs.forEach(input => { if (input.id !== 'dob') input.min = minDate; });
+}
+
+const bookingForm = document.querySelector('#booking-form');
+if (bookingForm) {
+  const serviceSelect = bookingForm.querySelector('#service');
+  const birthPanel = document.querySelector('#bkg-birth');
+  const summaryPrice = document.querySelector('#summary-price');
+  const summaryService = document.querySelector('#summary-service');
+  const summaryAstrologer = document.querySelector('#summary-astrologer');
+  const summaryMode = document.querySelector('#summary-mode');
+  const summaryDate = document.querySelector('#summary-date');
+  const summaryTime = document.querySelector('#summary-time');
+  const astrologerSelect = bookingForm.querySelector('#astrologer');
+  const chamberSelect = bookingForm.querySelector('#chamber');
+  const dateInput = bookingForm.querySelector('#date');
+  const timeSelect = bookingForm.querySelector('#time-slot');
+  const nameInput = bookingForm.querySelector('#full-name');
+
+  function updateSummary() {
+    const option = serviceSelect.options[serviceSelect.selectedIndex];
+    const price = option?.dataset.price;
+    summaryPrice.textContent = price ? price : '—';
+    summaryService.textContent = option && option.value ? option.value : 'No service selected yet';
+    if (birthPanel) birthPanel.hidden = !(option && option.dataset.birth === '1');
+
+    summaryAstrologer.textContent = astrologerSelect.value || 'Any available acharya';
+    summaryMode.textContent = chamberSelect.value || 'Mode not chosen';
+
+    if (dateInput.value) {
+      const d = new Date(dateInput.value + 'T00:00:00');
+      summaryDate.textContent = d.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
+    } else {
+      summaryDate.textContent = 'Date not chosen';
+    }
+    summaryTime.textContent = timeSelect.value || 'Slot not chosen';
+  }
+
+  [serviceSelect, astrologerSelect, chamberSelect, dateInput, timeSelect].forEach(field => {
+    field?.addEventListener('change', updateSummary);
+  });
+  updateSummary();
+
+  bookingForm.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!bookingForm.checkValidity()) {
+      bookingForm.reportValidity();
+      return;
+    }
+    const bookingId = 'RB-' + Math.random().toString(36).slice(2, 8).toUpperCase();
+    const successPanel = document.querySelector('#booking-success');
+    document.querySelector('#success-name').textContent = nameInput.value ? ', ' + nameInput.value.split(' ')[0] : '';
+    document.querySelector('#success-id').textContent = bookingId;
+    const summaryList = document.querySelector('#success-summary');
+    const service = serviceSelect.options[serviceSelect.selectedIndex]?.value || '—';
+    const date = summaryDate.textContent;
+    const time = timeSelect.value || '—';
+    const mode = chamberSelect.value || '—';
+    summaryList.innerHTML = [
+      ['Service', service],
+      ['Date & Time', date + ' · ' + time],
+      ['Mode', mode]
+    ].map(([label, value]) => '<li>' + label + ': <b>' + value + '</b></li>').join('');
+    bookingForm.hidden = true;
+    successPanel.hidden = false;
+    successPanel.scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'start' });
+  });
+}

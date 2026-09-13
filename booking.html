@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book a Consultation — Rishibani</title>
+    <meta name="description" content="Book your Vedic astrology consultation with Rishibani — choose your service, acharya, chamber and preferred slot in one place." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="icon" type="image/png" href="assets/logo-optimized.webp" />
+    <link rel="stylesheet" href="styles.css?v=4" />
+  </head>
+  <body class="inner-page">
+
+    <div class="preloader" aria-hidden="true"><img src="assets/logo-optimized.webp" alt="" /><span>Rishibani</span><i></i></div>
+    <header class="hero inner-header site-header" id="home">
+
+      <div class="contact-bar">
+        <div class="container"><span>☎ &nbsp;+91 98306 54959</span><span>✉ &nbsp;rishibani@gmail.com</span><div><a href="services.html">Services</a><a href="index.html#vastu">Vastu</a><a href="index.html#testimonials">Testimonials</a><a href="index.html#book">Contact</a><a href="index.html#book">Login / Signup</a></div></div>
+      </div>
+      <nav class="nav container" aria-label="Main navigation">
+        <a href="index.html" class="brand" aria-label="Rishibani home">
+          <img src="assets/logo-optimized.webp" alt="Rishibani logo" /><span><b>Rishibani</b><small>Vedic Astrology</small></span>
+        </a>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a><a href="service-detail.html">Service Details</a><a href="index.html#vastu">Vastu</a><a href="index.html#faq">FAQs</a><a href="index.html#testimonials">Testimonials</a><a href="booking.html" aria-current="page">Book Consultation</a>
+        </div>
+        <a class="outline-button nav-cta" href="booking.html">Book Now</a>
+      </nav>
+
+    </header>
+
+    <!-- Hero / breadcrumb -->
+    <section class="page-hero page-hero-img" style="--hero-img:url('assets/h2-optimized.webp')">
+      <div class="ph-bg" aria-hidden="true"></div>
+      <div class="ph-orbs" aria-hidden="true">
+        <span class="orb-a"></span><span class="orb-b"></span><span class="orb-c"></span>
+      </div>
+      <div class="container ph-inner">
+        <span class="ph-eyebrow"><i class="fa-solid fa-calendar-check"></i> Reserve Your Slot</span>
+        <h1>Book a <em>Consultation</em></h1>
+        <p>Tell us about yourself, choose a service and acharya, and pick a time that works for you — we'll confirm the rest.</p>
+        <nav class="crumb" aria-label="Breadcrumb">
+          <a href="./index.html"><i class="fa-solid fa-house"></i> HOME</a>
+          <span class="crumb-sep"><i class="fa-solid fa-chevron-right"></i></span>
+          <span class="crumb-current">BOOK CONSULTATION</span>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Booking form -->
+    <section class="bkg-wrap">
+      <div class="container bkg-grid">
+
+        <!-- Form -->
+        <form class="bkg-form" id="booking-form" novalidate>
+
+          <!-- Step 1 (implicit): booking source, fixed for the website -->
+          <input type="hidden" name="booking_source" value="Website" />
+
+          <!-- Step 2: Select client -->
+          <div class="bkg-section" id="bkg-client">
+            <span class="bkg-num">01</span>
+            <div class="bkg-section-head">
+              <h2>Your Details</h2>
+              <p>New here, or booking again? We'll match returning clients by mobile number or email.</p>
+            </div>
+            <div class="bkg-toggle" role="radiogroup" aria-label="Client type">
+              <label><input type="radio" name="client_type" value="new" checked /><span>New Client</span></label>
+              <label><input type="radio" name="client_type" value="existing" /><span>Existing Client</span></label>
+            </div>
+            <div class="bkg-row">
+              <div class="bkg-field">
+                <label for="full-name">Full Name<span class="req">*</span></label>
+                <input type="text" id="full-name" name="full_name" placeholder="Your full name" required />
+              </div>
+              <div class="bkg-field">
+                <label for="mobile">Mobile Number<span class="req">*</span></label>
+                <input type="tel" id="mobile" name="mobile" placeholder="+91 00000 00000" required />
+              </div>
+            </div>
+            <div class="bkg-row">
+              <div class="bkg-field">
+                <label for="email">Email Address<span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required />
+              </div>
+              <div class="bkg-field">
+                <label for="gender">Gender <span class="opt">(optional)</span></label>
+                <select id="gender" name="gender">
+                  <option value="">Prefer not to say</option>
+                  <option value="female">Female</option>
+                  <option value="male">Male</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Select service -->
+          <div class="bkg-section" id="bkg-service">
+            <span class="bkg-num">02</span>
+            <div class="bkg-section-head">
+              <h2>Choose Your Service</h2>
+              <p>Price and duration update automatically once you select a service.</p>
+            </div>
+            <div class="bkg-field">
+              <label for="service">Service<span class="req">*</span></label>
+              <select id="service" name="service" required>
+                <option value="" data-price="" data-birth="0" selected disabled>Select a service</option>
+                <option value="Manglik &amp; Match Making Analysis" data-price="15,000" data-birth="1">Manglik &amp; Match Making Analysis — Rs. 15,000</option>
+                <option value="Janma Kundali" data-price="7,500" data-birth="1">Janma Kundali — Rs. 7,500</option>
+                <option value="Palm Reading &amp; Hora Analysis" data-price="1,500" data-birth="0">Palm Reading &amp; Hora Analysis — Rs. 1,500</option>
+                <option value="General Prediction" data-price="1,505" data-birth="1">General Prediction — Rs. 1,505</option>
+                <option value="Vastu Visit" data-price="15,000" data-birth="0">Vastu Visit — Rs. 15,000</option>
+                <option value="Numerological Analysis &amp; Name Correction" data-price="15,000" data-birth="1">Numerological Analysis &amp; Name Correction — Rs. 15,000</option>
+              </select>
+            </div>
+
+            <div class="bkg-birth" id="bkg-birth" hidden>
+              <p class="bkg-birth-note"><i class="fa-solid fa-circle-info"></i> This service works best with accurate birth details. Don't know the exact time? Leave it blank — we'll offer a Palm + Hora reading instead.</p>
+              <div class="bkg-row">
+                <div class="bkg-field">
+                  <label for="dob">Date of Birth</label>
+                  <input type="date" id="dob" name="dob" />
+                </div>
+                <div class="bkg-field">
+                  <label for="tob">Time of Birth <span class="opt">(if known)</span></label>
+                  <input type="time" id="tob" name="tob" />
+                </div>
+              </div>
+              <div class="bkg-field">
+                <label for="pob">Place of Birth</label>
+                <input type="text" id="pob" name="pob" placeholder="City, State" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4 + 5: Select astrologer + chamber -->
+          <div class="bkg-section" id="bkg-astrologer">
+            <span class="bkg-num">03</span>
+            <div class="bkg-section-head">
+              <h2>Acharya &amp; Consultation Mode</h2>
+              <p>Only astrologers available for your chosen service are shown here.</p>
+            </div>
+            <div class="bkg-row">
+              <div class="bkg-field">
+                <label for="astrologer">Preferred Acharya</label>
+                <select id="astrologer" name="astrologer">
+                  <option value="Any available">No preference — any available</option>
+                  <option value="Acharya Shastri">Acharya Shastri — Vedic Astrologer, 24+ yrs</option>
+                  <option value="Guru Devendra">Guru Devendra — Graha Shanti Specialist</option>
+                </select>
+              </div>
+              <div class="bkg-field">
+                <label for="chamber">Consultation Mode<span class="req">*</span></label>
+                <select id="chamber" name="chamber" required>
+                  <option value="" selected disabled>Choose a mode</option>
+                  <option value="Video Call">Video Call</option>
+                  <option value="Phone Call">Phone Call</option>
+                  <option value="Kolkata Chamber — In Person">Kolkata Chamber — In Person</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 6 + 7: Select date + time slot -->
+          <div class="bkg-section" id="bkg-slot">
+            <span class="bkg-num">04</span>
+            <div class="bkg-section-head">
+              <h2>Date &amp; Time</h2>
+              <p>Slots shown are typically available — we'll confirm the exact time once your booking is reviewed.</p>
+            </div>
+            <div class="bkg-row">
+              <div class="bkg-field">
+                <label for="date">Preferred Date<span class="req">*</span></label>
+                <input type="date" id="date" name="date" required />
+              </div>
+              <div class="bkg-field">
+                <label for="time-slot">Preferred Time Slot<span class="req">*</span></label>
+                <select id="time-slot" name="time_slot" required>
+                  <option value="" selected disabled>Choose a slot</option>
+                  <option value="10:00 AM – 1:00 PM">10:00 AM – 1:00 PM</option>
+                  <option value="2:00 PM – 5:00 PM">2:00 PM – 5:00 PM</option>
+                  <option value="6:00 PM – 8:00 PM">6:00 PM – 8:00 PM</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 8 + 9: Reserve slot + payment -->
+          <div class="bkg-section" id="bkg-payment">
+            <span class="bkg-num">05</span>
+            <div class="bkg-section-head">
+              <h2>Payment Preference</h2>
+              <p>Your slot is held for 30 minutes while we confirm your booking.</p>
+            </div>
+            <div class="bkg-toggle bkg-toggle-wide" role="radiogroup" aria-label="Payment preference">
+              <label><input type="radio" name="payment" value="Pay Online (UPI / Card)" checked /><span><i class="fa-solid fa-mobile-screen-button"></i> Pay Online (UPI / Card)</span></label>
+              <label><input type="radio" name="payment" value="Bank Transfer" /><span><i class="fa-solid fa-building-columns"></i> Bank Transfer</span></label>
+              <label><input type="radio" name="payment" value="Pay at Consultation" /><span><i class="fa-solid fa-hand-holding-dollar"></i> Pay at Consultation</span></label>
+            </div>
+          </div>
+
+          <!-- Step 10 + 11: Confirm + notify -->
+          <div class="bkg-section" id="bkg-confirm">
+            <span class="bkg-num">06</span>
+            <div class="bkg-section-head">
+              <h2>Anything We Should Know?</h2>
+              <p>Optional — share context so your acharya can prepare.</p>
+            </div>
+            <div class="bkg-field">
+              <label for="notes">Notes / Questions <span class="opt">(optional)</span></label>
+              <textarea id="notes" name="notes" rows="3" placeholder="e.g. specific questions, family members involved, past readings..."></textarea>
+            </div>
+            <label class="bkg-check">
+              <input type="checkbox" id="terms" name="terms" required />
+              <span>I agree to be contacted by phone, email or WhatsApp regarding this booking.<span class="req">*</span></span>
+            </label>
+            <button type="submit" class="bkg-submit"><i class="fa-solid fa-calendar-check"></i> Confirm Booking</button>
+            <p class="bkg-form-note">A confirmation with your Booking ID will be sent to your email and mobile once reviewed.</p>
+          </div>
+        </form>
+
+        <!-- Confirmation state -->
+        <div class="bkg-success" id="booking-success" hidden>
+          <span class="bkg-success-icon"><i class="fa-solid fa-check"></i></span>
+          <h2>Booking Received</h2>
+          <p>Thank you<span id="success-name"></span> — your request is on its way to our team.</p>
+          <div class="bkg-success-id">Booking ID: <b id="success-id"></b></div>
+          <ul class="bkg-success-list" id="success-summary"></ul>
+          <p class="bkg-success-note">We'll confirm your slot and payment details over email and WhatsApp shortly.</p>
+          <a href="index.html" class="btn-gold"><i class="fa-solid fa-house"></i> Back to Home</a>
+        </div>
+
+        <!-- Sidebar summary -->
+        <aside class="bkg-side">
+          <div class="bkg-summary">
+            <span class="sd-book-eyebrow"><i class="fa-solid fa-receipt"></i> Booking Summary</span>
+            <div class="bkg-summary-price">
+              <span class="cur">Rs.</span><span class="amt" id="summary-price">—</span><span class="suf">/-</span>
+            </div>
+            <span class="sd-book-note" id="summary-service">No service selected yet</span>
+            <ul class="bkg-summary-list">
+              <li><i class="fa-solid fa-user"></i> <span id="summary-astrologer">Any available acharya</span></li>
+              <li><i class="fa-solid fa-video"></i> <span id="summary-mode">Mode not chosen</span></li>
+              <li><i class="fa-solid fa-calendar-day"></i> <span id="summary-date">Date not chosen</span></li>
+              <li><i class="fa-solid fa-clock"></i> <span id="summary-time">Slot not chosen</span></li>
+            </ul>
+          </div>
+
+          <div class="consult-card">
+            <div class="cc-halo" aria-hidden="true"></div>
+            <span class="cc-eyebrow"><i class="fa-solid fa-shield-halved"></i> Good to know</span>
+            <h4>Private &amp; confidential</h4>
+            <p>Every consultation is 1:1 with a senior acharya. Your details and charts stay strictly between you and Rishibani.</p>
+            <a href="tel:+919830654959" class="cc-btn"><i class="fa-solid fa-phone"></i> Call an Acharya</a>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand"><a class="brand" href="#home"><img src="assets/logo-optimized.webp" alt="Rishibani logo" /><span><b>Rishibani</b><small>Vedic Astrology</small></span></a><p>Guiding you with ancient wisdom for a better tomorrow.</p><div class="social-links"><a href="#home">f</a><a href="#home">▶</a><a href="#home">◎</a><a href="#home">◉</a><a href="#home">𝕏</a></div></div>
+        <div><h3>Address</h3><p class="footer-address">⌖ &nbsp; Rishibani Vedic Centre,<br />&nbsp;&nbsp;&nbsp;&nbsp; Kolkata, West Bengal,<br />&nbsp;&nbsp;&nbsp;&nbsp; India 700028</p><p>☎ &nbsp; +91 98306 54959</p><p>✉ &nbsp; rishibani@gmail.com</p></div>
+        <div><h3>Quick Links</h3><a href="index.html">Home</a><a href="services.html">Services</a><a href="index.html#vastu">Vastu</a><a href="index.html#testimonials">Testimonials</a><a href="index.html#faq">FAQs</a></div>
+        <div><h3>Other Links</h3><a href="booking.html">Book a Puja</a><a href="booking.html">Birth Chart</a><a href="#home">Privacy Policy</a><a href="#home">Terms &amp; Conditions</a><a href="#home">Return Policy</a></div>
+        <div><h3>Connect With Us</h3><p class="connect-copy">Follow along on our socials for daily horoscopes, live sessions and updates from the acharyas.</p><a class="footer-cta" href="booking.html">Book Consultation →</a></div>
+      </div>
+      <div class="footer-bottom container"><span>© 2026 Rishibani Vedic Astrology. All rights reserved.</span><a href="#home" aria-label="Back to top">↑</a></div>
+    </footer>
+    <nav class="contact-dock" aria-label="Quick contact">
+      <a class="dock-whatsapp" href="https://wa.me/919830654959" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.7 7.4L3 20l1.2-4.6a8.5 8.5 0 1 1 16.3-3.9Z"/><path d="M8.4 7.6c-.7.2-.9 1.1-.6 2 .8 2.7 3 4.9 5.7 5.7.9.3 1.8.1 2-.6l.4-1.1-2.2-1.1-.8.9c-1.5-.7-2.7-1.9-3.4-3.4l.9-.8-1.1-2.2Z"/></svg><span>WhatsApp</span></a>
+      <a class="dock-mail" href="mailto:rishibani@gmail.com" aria-label="Email Rishibani"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg><span>Email us</span></a>
+      <a class="dock-call" href="tel:+919830654959" aria-label="Call Rishibani"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 3 3 5-2.5 2a14 14 0 0 0 6.5 6.5l2-2.5 5 3-.7 3c-.2.8-1 1.2-1.8 1C10.8 19.8 4.2 13.2 3 5.5 2.8 4.7 3.2 4 4 3.7Z"/></svg><span>Call us</span></a>
+      <button class="scroll-top" type="button" aria-label="Scroll to top" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 11 7-7 7 7M12 4v16"/></svg><span>Back to top</span></button>
+    </nav>
+    <script src="script.js"></script>
+  </body>
+</html>
